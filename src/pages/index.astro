@@ -32,11 +32,72 @@ import BlogSlider from '../components/BlogSlider.astro';
 
 </MainLayout>
 <style is:global>
-    /* Hero stilleri ve Swiper için genel stiller */
-    .hero-cinematic { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .hero-cinematic video { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; z-index: -1; object-fit: cover; }
-    .hero-content { z-index: 1; text-align: center; color: white; }
-    .hero-content h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 500; }
-    .hero-content p { font-size: 1.2rem; margin: 1rem 0 2rem; max-width: 500px; }
-    .hero-content .btn { background-color: var(--accent-color); color: white; padding: 1rem 2.5rem; border-radius: 4px; text-decoration: none; font-weight: 500; transition: background-color 0.3s ease; }
+    /* TEMEL SAYFA SIFIRLAMASI - ÇOK ÖNEMLİ */
+    /* Tarayıcının varsayılan boşluklarını kaldırarak taşmaları engeller */
+    html, body {
+        margin: 0;
+        padding: 0;
+        /* Bu, yatay kaydırmayı kesin olarak engeller. 
+           Sorunun kök nedenini bulmak en iyisidir ama bu da güçlü bir çözümdür. */
+        overflow-x: hidden;
+    }
+
+    /* HERO BÖLÜMÜ GÜNCELLEMELERİ */
+    .hero-cinematic {
+        position: relative;
+        
+        /* 100vh yerine 100dvh kullanarak mobil tarayıcı arayüzü değişikliklerine uyum sağla */
+        height: 100vh; /* Eski tarayıcılar için yedek */
+        height: 100dvh; /* Dinamik viewport yüksekliği */
+
+        width: 100%; /* Genişliğin ekranı aşmamasını garantile */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* Bu kuralın burada kalması doğru */
+    }
+
+    .hero-cinematic video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        /* min-width ve min-height yerine direkt width ve height kullanmak bazen daha stabil olur */
+        width: 100%;
+        height: 100%;
+
+        /* object-fit: cover; en-boy oranını koruyarak alanı kaplamasını sağlar. Bu doğru. */
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    /* Hero-content stillerinizde bir sorun görünmüyor, olduğu gibi kalabilir. */
+    .hero-content {
+        z-index: 1;
+        text-align: center;
+        color: white;
+        padding: 0 20px; /* Kenarlara çok yapışmaması için küçük bir padding eklemek iyi olabilir */
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 500;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin: 1rem 0 2rem;
+        max-width: 500px;
+    }
+
+    .hero-content .btn {
+        background-color: var(--accent-color);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
 </style>
