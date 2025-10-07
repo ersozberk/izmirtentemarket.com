@@ -1,0 +1,185 @@
+---
+---
+
+<section class="policy-hero">
+    <div class="hero-background">
+        {/* --- HATA DÜZELTMESİ --- */}
+        {/* <Image> bileşeni yerine standart <img> etiketi kullanıldı. */}
+        {/* Resim yolu, public klasörüne göre doğrudan yazıldı. */}
+        <img src="../../public/images/quality-hero.jpg" alt="Kalite ve işçilik detayı" class="hero-bg-img" />
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+        <h1>Kalite Politikamız</h1>
+        <p>Mükemmelliği standart olarak benimsiyor, her projede en yüksek kaliteyi hedefliyoruz.</p>
+    </div>
+</section>
+
+{/* Sayfanın geri kalanında bir değişiklik yok, olduğu gibi kalabilir. */}
+<section class="policy-main-section">
+    <div class="container">
+        <div class="policy-content">
+            <h2>Müşteri Memnuniyetine Adanmış Bir Anlayış</h2>
+            <p>
+                İzmir Tente Market olarak kalite politikamızın temelini, koşulsuz müşteri memnuniyeti oluşturur. Sunduğumuz her ürün ve hizmetin, müşterilerimizin beklentilerini yalnızca karşılamakla kalmayıp, aynı zamanda aşmasını hedefleriz. Bu hedefe ulaşmak için süreçlerimizi, tedarik zincirimizden montaj aşamasına kadar uluslararası kalite standartlarına uygun olarak yönetiriz.
+            </p>
+            <p>
+                Dayanıklılık, estetik ve fonksiyonellik, ürünlerimizin vazgeçilmez üç temel direğidir. Teknolojiyi ve yenilikçi malzemeleri yakından takip ederek, uzun ömürlü ve her türlü hava koşuluna dayanıklı çözümler üretiriz. Kalite, bizim için sadece bir belge değil, iş yapış biçimimizin ve size verdiğimiz sözün bir yansımasıdır.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="principles-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Kalite İlkelerimiz</h2>
+            <p>Politikamızın temelini oluşturan ana prensiplerimiz.</p>
+        </div>
+        <div class="principles-grid">
+            <div class="principle-item">
+                <div class="principle-number">01</div>
+                <h3>Sürekli İyileştirme</h3>
+                <p>Süreçlerimizi, ürünlerimizi ve ekibimizin yetkinliklerini düzenli olarak gözden geçirir, her zaman daha iyisi için çalışırız.</p>
+            </div>
+            <div class="principle-item">
+                <div class="principle-number">02</div>
+                <h3>Nitelikli Malzeme</h3>
+                <p>Projelerimizde yalnızca sertifikalı, dayanıklılığı kanıtlanmış ve güvenilir tedarikçilerden temin edilen malzemeleri kullanırız.</p>
+            </div>
+            <div class="principle-item">
+                <div class="principle-number">03</div>
+                <h3>Uzman İşçilik</h3>
+                <p>Alanında tecrübeli ve eğitimli montaj ekibimizle, her detayın kusursuz olmasını sağlayarak ürünlerimizin performansını garanti ederiz.</p>
+            </div>
+            <div class="principle-item">
+                <div class="principle-number">04</div>
+                <h3>Zamanında Teslimat</h3>
+                <p>Proje takvimine sadık kalarak, söz verdiğimiz zamanda işimizi tamamlar ve değerli vaktinize saygı gösteririz.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Stillerde herhangi bir değişiklik yapmaya gerek yok, olduğu gibi kalabilir. */
+    .policy-hero {
+        position: relative;
+        height: 60vh;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .hero-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .hero-content p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
+    }
+    .policy-main-section {
+        padding: 6rem 0;
+        background-color: #ffffff;
+    }
+    .policy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .policy-content h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    .policy-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--secondary-text-color, #6c757d);
+    }
+    .policy-content p:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+    .principles-section {
+        padding: 6rem 0;
+        background-color: #f8f9fa;
+    }
+    .section-title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .section-title p {
+        font-size: 1.1rem;
+        color: var(--secondary-text-color, #6c757d);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    .principle-item {
+        padding: 2.5rem;
+        background-color: #ffffff;
+        border: 1px solid var(--border-color, #e9ecef);
+        border-radius: 8px;
+        position: relative;
+    }
+    .principle-number {
+        position: absolute;
+        top: 1.5rem;
+        left: 2.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color, #007bff);
+        opacity: 0.2;
+    }
+    .principle-item h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .principle-item p {
+        line-height: 1.7;
+        color: var(--secondary-text-color, #6c757d);
+    }
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+    }
+</style>

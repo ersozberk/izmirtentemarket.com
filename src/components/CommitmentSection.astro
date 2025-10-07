@@ -1,0 +1,60 @@
+---
+// src/components/CommitmentSection.astro
+import { Image } from 'astro:assets';
+import commitmentImage from '../../public/images/sustainability.jpg';
+---
+<section class="commitment-section">
+    <div class="container commitment-container">
+        <Image src={commitmentImage} alt="Sürdürülebilirlik" class="background-image" format="webp"/>
+        <div class="overlay"></div>
+        <div class="commitment-content">
+            <h2>Sustainability</h2>
+            <p>Sürdürülebilirlik, taahhüdümüzün merkezinde yer almaktadır. Çevre dostu uygulamaları benimseyerek, karbon ayak izimizi azaltarak ve sorumlu kaynak yönetimini benimseyerek kalıcı pozitif etkiler yaratmaya çalışıyoruz.</p>
+            <div class="button-wrapper">
+                <a href="/kalite-politikamiz" class="btn-review">İNCELE</a>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .commitment-section { padding: 0; }
+    .commitment-container {
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 4rem;
+        border-radius: 12px;
+        overflow: hidden;
+        color: white;
+    }
+    .background-image {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+        z-index: 2;
+    }
+    .commitment-content { z-index: 3; max-width: 600px; }
+    .commitment-content h2 { font-size: 2.5rem; }
+    .commitment-content p { font-size: 1.1rem; line-height: 1.8; margin: 1rem 0 2rem; }
+    .button-wrapper {
+        background-color: rgba(0, 86, 179, 0.8); /* Buton arkaplanı */
+        padding: 1rem;
+        border-radius: 8px;
+        display: inline-block;
+    }
+    .btn-review {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+</style>

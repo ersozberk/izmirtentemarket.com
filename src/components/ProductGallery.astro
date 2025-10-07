@@ -1,0 +1,234 @@
+---
+// src/components/ProductGallery.astro
+import { Image } from 'astro:assets';
+// Görselleri src/assets klasörüne eklediğinizden emin olun.
+// "Daha Fazla Göster" özelliğini test etmek için daha fazla görsel ekledim.
+import roof1 from '../../public/images/roof-1.jpg';
+import roof2 from '../../public/images/roof-2.jpg';
+import roof3 from '../../public/images/roof-3.jpg'; // Yeni görsel
+import glazing1 from '../../public/images/glazing-1.jpg';
+import glazing2 from '../../public/images/glazing-2.jpg';
+import glazing3 from '../../public/images/glazing-3.jpg'; // Yeni görsel
+import screen1 from '../../public/images/screen-1.jpg';
+import screen2 from '../../public/images/screen-2.jpg';
+import screen3 from '../../public/images/screen-3.jpg'; // Yeni görsel
+import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
+---
+<section class="product-gallery">
+    <div class="container">
+        <div class="gallery-header">
+            <div class="gallery-text">
+                <h2>Uygulamalarımız</h2>
+                <p>Ürünlerimiz, hafif ve dayanıklı malzemeler kullanılarak, size özel dış mekan yaşam alanları yaratmak için tasarlanmıştır.</p>
+            </div>
+        </div>
+        
+        <nav class="gallery-nav">
+            <button data-filter="all" class="active">Tüm Ürünler</button>
+            <button data-filter="roof">Çatı Sistemleri</button>
+            <button data-filter="glazing">Camlama</button>
+            <button data-filter="screen">Gölgeleme</button>
+        </nav>
+
+        <div class="gallery-grid">
+            <a href="#" class="gallery-item" data-category="roof"><Image src={roof1} alt="Çatı Sistemi Projesi 1" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="screen"><Image src={screen1} alt="Gölgeleme Sistemi Projesi 1" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="glazing"><Image src={glazing1} alt="Cam Sistemi Projesi 1" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="roof"><Image src={roof2} alt="Çatı Sistemi Projesi 2" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="glazing"><Image src={glazing2} alt="Cam Sistemi Projesi 2" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="screen"><Image src={screen2} alt="Gölgeleme Sistemi Projesi 2" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="roof"><Image src={roof3} alt="Çatı Sistemi Projesi 3" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="glazing"><Image src={glazing3} alt="Cam Sistemi Projesi 3" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="screen"><Image src={screen3} alt="Gölgeleme Sistemi Projesi 3" format="webp"/></a>
+            <a href="#" class="gallery-item" data-category="screen"><Image src={screen4} alt="Gölgeleme Sistemi Projesi 4" format="webp"/></a>
+        </div>
+        
+        <div class="load-more-container">
+            <button id="load-more-btn" class="load-more-btn">Daha Fazla Göster</button>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    function setupGallery() {
+        const gallery = document.querySelector('.product-gallery');
+        if (!gallery || gallery.dataset.initialized === 'true') {
+            return; // Galeri yoksa veya zaten kurulmuşsa tekrar çalıştırma
+        }
+
+        const filterButtons = gallery.querySelectorAll('.gallery-nav button');
+        const galleryItems = Array.from(gallery.querySelectorAll('.gallery-grid .gallery-item'));
+        const loadMoreBtn = gallery.querySelector('#load-more-btn');
+
+        // Sabit: Başlangıçta ve her "daha fazla" tıklandığında kaç resim gösterileceği
+        const ITEMS_PER_PAGE = 6;
+        let visibleItemsCount = ITEMS_PER_PAGE;
+        let currentFilter = 'all';
+
+        // Galeriyi güncelleyen ana fonksiyon
+        function updateGalleryView() {
+            // Önce filtreye uyan elemanları bulalım
+            const filteredItems = galleryItems.filter(item => 
+                currentFilter === 'all' || item.dataset.category === currentFilter
+            );
+
+            // Tüm elemanları gizleyelim
+            galleryItems.forEach(item => item.classList.add('hidden'));
+            
+            // Sadece gösterilmesi gerekenleri görünür yapalım
+            filteredItems.slice(0, visibleItemsCount).forEach(item => {
+                item.classList.remove('hidden');
+            });
+
+            // "Daha Fazla Göster" butonunu yönetelim
+            if (filteredItems.length > visibleItemsCount) {
+                loadMoreBtn.style.display = 'inline-block';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        // Filtre butonlarına tıklama olayı
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Aktif butonu değiştir
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filtreyi ve görünür sayısını sıfırla
+                currentFilter = button.dataset.filter;
+                visibleItemsCount = ITEMS_PER_PAGE;
+                
+                // Galeriyi yeni filtreyle güncelle
+                updateGalleryView();
+            });
+        });
+
+        // "Daha Fazla Göster" butonuna tıklama olayı
+        loadMoreBtn.addEventListener('click', () => {
+            visibleItemsCount += ITEMS_PER_PAGE;
+            updateGalleryView();
+        });
+
+        // Başlangıç durumu için galeriyi ilk kez yükle
+        updateGalleryView();
+        gallery.dataset.initialized = 'true';
+    }
+
+    // Astro'nun sayfa geçişlerinde de çalışması için
+    document.addEventListener('astro:page-load', setupGallery);
+    // İlk yüklemede çalışması için (opsiyonel, page-load genellikle yeterlidir)
+    setupGallery();
+</script>
+
+
+<style>
+    .product-gallery { 
+        padding: 6rem 0; 
+        background-color: #f8f9fa; /* Hafif bir arkaplan rengi */
+    }
+    .gallery-header { 
+        text-align: center; 
+        margin-bottom: 3rem; 
+    }
+    .gallery-text h2 { 
+        font-size: 2.5rem; 
+        font-weight: 600; /* Biraz daha kalın */
+    }
+    .gallery-text p { 
+        color: var(--secondary-text-color, #6c757d); 
+        max-width: 600px; 
+        margin: 1rem auto 0; 
+        line-height: 1.8; 
+    }
+    
+    /* GÜNCELLEME: Buton menüsü ortalandı ve stili değiştirildi */
+    .gallery-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Mobilde alt satıra geçmesi için */
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .gallery-nav button {
+        padding: 0.75rem 1.75rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #495057;
+        background-color: white;
+        border: 1px solid #dee2e6;
+        border-radius: 99px; /* Yuvarlak hap şeklinde */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .gallery-nav button:hover {
+        background-color: #e9ecef;
+        border-color: #ced4da;
+    }
+
+    .gallery-nav button.active {
+        background-color: var(--accent-color, #007bff);
+        color: white;
+        border-color: var(--accent-color, #007bff);
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.25);
+    }
+    /* --- Bitiş: Buton menüsü güncellemesi --- */
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .gallery-item {
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        /* GÜNCELLEME: Animasyon eklendi */
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    /* GÜNCELLEME: Gizlenen elemanlar için yeni stil */
+    .gallery-item.hidden {
+        opacity: 0;
+        transform: scale(0.9);
+        pointer-events: none; /* Tıklamayı engelle */
+        display: none; /* Yer kaplamaması için */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
+    }
+    .gallery-item:hover img {
+        transform: scale(1.05);
+    }
+    
+    /* "Daha Fazla Göster" Butonu Stilleri */
+    .load-more-container {
+        text-align: center;
+        margin-top: 3rem;
+    }
+    .load-more-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: white;
+        background-color: var(--text-color, #212529);
+        border: 1px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .load-more-btn:hover {
+        background-color: var(--secondary-text-color, #6c757d);
+    }
+</style>

@@ -1,0 +1,167 @@
+---
+// Hizmetler ve süreç adımları için verileri burada tanımlıyoruz.
+const services = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
+    title: "Ücretsiz Keşif & Danışmanlık",
+    description: "Projeniz için en doğru çözümü bulmak üzere uzman ekibimiz mekanınızı ziyaret eder, ölçü alır ve ihtiyaçlarınızı dinleyerek size özel seçenekler sunar.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`,
+    title: "Profesyonel Montaj & Kurulum",
+    description: "Onaylanan projeniz, deneyimli montaj ekibimiz tarafından titizlikle ve belirlenen takvime uygun olarak uygulanır. Temiz ve sorunsuz bir kurulum garanti ederiz.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+    title: "Tamir, Bakım ve Satış Sonrası Destek",
+    description: "Teslimat sonrası da yanınızdayız. Mevcut sistemlerinizin periyodik bakımı, onarımı ve her türlü teknik destek ihtiyacınız için bize ulaşabilirsiniz.",
+  },
+];
+
+const processSteps = [
+    { number: "01", title: "Talep & İletişim", description: "Fikirlerinizi dinlemek için ilk adımı atıyoruz." },
+    { number: "02", title: "Keşif & Projelendirme", description: "Mekanınıza en uygun çözümü yerinde belirliyoruz." },
+    { number: "03", title: "Üretim & Hazırlık", description: "Onaylanan projenizi en kaliteli malzemelerle üretiyoruz." },
+    { number: "04", title: "Montaj & Teslimat", description: "Uzman ekibimizle projenizi hayata geçiriyoruz." },
+];
+---
+
+<section class="page-header">
+    <div class="container">
+        <h1>Uçtan Uca Profesyonel Hizmet</h1>
+        <p>Fikir aşamasından montaj sonrası desteğe kadar her adımda yanınızdayız.</p>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <div class="services-grid">
+            {services.map(service => (
+                <div class="service-card">
+                    <div class="service-icon" set:html={service.icon} />
+                    <h3 class="service-title">{service.title}</h3>
+                    <p class="service-description">{service.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<section class="process-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Hizmet Sürecimiz</h2>
+            <p>Projenizi nasıl hayata geçiriyoruz?</p>
+        </div>
+        <div class="process-timeline">
+            {processSteps.map(step => (
+                <div class="process-step">
+                    <div class="step-number">{step.number}</div>
+                    <div class="step-content">
+                        <h4>{step.title}</h4>
+                        <p>{step.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Projenize Başlamaya Hazır Mısınız?</h2>
+        <p>Hayalinizdeki mekanı tasarlamak ve ücretsiz keşif hizmetimizden yararlanmak için ilk adımı atın.</p>
+        <a href="/iletisim" class="cta-button">Ücretsiz Keşif İçin Bize Ulaşın</a>
+    </div>
+</section>
+
+
+<style>
+.page-header {
+        padding: 5rem 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid var(--border-color, #e9ecef);
+    }
+    .page-header h1 { font-size: 3rem; font-weight: 600; margin-bottom: 1rem;}
+    .page-header p { font-size: 1.2rem; color: #6c757d; max-width: 600px; margin: 0 auto; }
+
+    .services-section { padding: 6rem 0; }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .service-card {
+        text-align: center;
+        padding: 2.5rem;
+        border: 1px solid var(--border-color, #e9ecef);
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    .service-icon {
+        color: var(--accent-color, #007bff);
+        margin-bottom: 1.5rem;
+    }
+    .service-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .service-description {
+        color: #6c757d;
+        line-height: 1.7;
+    }
+
+    .process-section {
+        padding: 6rem 0;
+        background-color: #f8f9fa;
+    }
+    .section-title { text-align: center; margin-bottom: 4rem; }
+    .section-title h2 { font-size: 2.5rem; font-weight: 600; }
+    .section-title p { font-size: 1.1rem; color: #6c757d; }
+    .process-timeline {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .process-step {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color, #e9ecef);
+    }
+    .step-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--accent-color, #007bff);
+        margin-right: 2rem;
+        line-height: 1;
+    }
+    .step-content h4 { font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0; }
+    .step-content p { margin: 0; color: #6c757d; }
+    
+    .cta-section {
+        padding: 5rem 0;
+        background-color: #212529;
+        color: white;
+        text-align: center;
+    }
+    .cta-section h2 { font-size: 2.2rem; font-weight: 600; margin-bottom: 1rem; }
+    .cta-section p { margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem auto; }
+    .cta-button {
+        display: inline-block; padding: 1rem 2.5rem; background-color: var(--accent-color, #007bff); color: white;
+        text-decoration: none; font-weight: 500; font-size: 1rem; border-radius: 8px; transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    .cta-button:hover { background-color: #0069d9; transform: translateY(-2px); }
+
+    @media(min-width: 768px) {
+        .process-timeline { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>

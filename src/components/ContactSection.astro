@@ -1,0 +1,36 @@
+---
+// src/components/ContactSection.astro
+---
+<section class="contact-section">
+    <div class="container contact-container">
+        <div class="contact-text">
+            <h2>İletişime Geçin</h2>
+            <p>Projeniz hakkında konuşmak, ürünlerimizle ilgili bilgi almak veya sadece bir merhaba demek için buradayız. Formu doldurun, ekibimiz en kısa sürede size ulaşsın.</p>
+        </div>
+        <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="contact-form">
+            <div class="form-group"><input type="text" name="name" placeholder="Adınız Soyadınız" required></div>
+            <div class="form-group"><input type="text" name="company" placeholder="Firma Adı (İsteğe bağlı)"></div>
+            <div class="form-group"><input type="tel" name="phone" placeholder="Telefon Numaranız" required></div>
+            <div class="form-group"><input type="email" name="email" placeholder="E-posta Adresiniz" required></div>
+            <div class="form-group full-width"><button type="submit">Gönder</button></div>
+        </form>
+    </div>
+</section>
+<style>
+    .contact-section { padding: 6rem 0; background-color: #f8f9fa; }
+    .contact-container { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; max-width: 1100px; }
+    .contact-text h2 { font-size: 2.5rem; }
+    .contact-text p { color: var(--secondary-text-color); font-size: 1.1rem; line-height: 1.8; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-group { width: 100%; }
+    .full-width { grid-column: 1 / -1; }
+    .contact-form input { width: 100%; border: none; border-bottom: 2px solid var(--border-color); padding: 1rem 0; font-size: 1rem; background: none; transition: border-color 0.3s ease; }
+    .contact-form input:focus { outline: none; border-color: var(--accent-color); }
+    .contact-form button { background: var(--text-color); color: white; padding: 1.2rem; border: none; cursor: pointer; font-size: 1.1rem; width: 100%; border-radius: 4px; }
+    @media (min-width: 992px) {
+        .contact-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .contact-form { grid-template-columns: 1fr; }
+    }
+</style>

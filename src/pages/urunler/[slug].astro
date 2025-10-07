@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import SmartImage from '../../components/SmartImage.astro';
+
+// İkonları doğrudan SVG olarak tanımlayalım
+const icons = {
+  sun: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
+  wind: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>`,
+  water: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>`,
+  zap: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+};
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+  return allProducts.map(product => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { Content } = await product.render();
+---
+<MainLayout title={product.data.title} description={product.data.description}>
+    <section class="product-hero" style={`background-image: url(${product.data.heroImage})`}>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>{product.data.title}</h1>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                {product.data.features.map(feature => (
+                    <div class="feature-item">
+                        <div class="feature-icon" set:html={icons[feature.icon]} />
+                        <span>{feature.text}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="content-gallery-section">
+        <div class="container">
+            <div class="content-gallery-grid">
+                <div class="prose">
+                    <Content />
+                </div>
+                <div class="gallery">
+                    {product.data.gallery.map(imagePath => (
+                        <div class="gallery-image">
+                            <SmartImage src={imagePath} alt={`${product.data.title} Galeri Resmi`} width="600" height="450" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>{product.data.title} ile İlgili Teklif Alın</h2>
+            <p>Projeniz için en uygun çözümü ve fiyatlandırmayı öğrenmek için bizimle iletişime geçin.</p>
+            <a href="/iletisim" class="btn">Hemen İletişime Geç</a>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+.product-hero {
+        position: relative;
+        height: 50vh;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        background-size: cover;
+        background-position: center;
+    }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); }
+    .hero-content { position: relative; }
+    .hero-content h1 { font-size: 3.5rem; font-weight: 700; }
+
+    .features-section { padding: 3rem 0; background-color: #f8f9fa; border-bottom: 1px solid #e9ecef; }
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+    .feature-icon { color: var(--accent-color, #007bff); }
+    
+    .content-gallery-section { padding: 6rem 0; }
+    .content-gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .prose { font-size: 1.1rem; line-height: 1.8; }
+    .prose h3 { font-size: 1.8rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1.2rem; }
+    .prose ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .prose li { margin-bottom: 0.5rem; }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .gallery-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+    }
+
+    .cta-section {
+        padding: 5rem 0;
+        background-color: #212529;
+        color: white;
+        text-align: center;
+    }
+    .cta-section h2 { font-size: 2.2rem; font-weight: 600; margin-bottom: 1rem; }
+    .cta-section p { margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9; }
+    .btn {
+        display: inline-block; padding: 1rem 2.5rem; background-color: var(--accent-color, #007bff); color: white;
+        text-decoration: none; font-weight: 500; font-size: 1rem; border-radius: 8px; transition: transform 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    @media(min-width: 992px) {
+        .content-gallery-grid {
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+</style>

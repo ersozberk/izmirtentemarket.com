@@ -1,0 +1,68 @@
+---
+// src/components/Ozelliklerimiz.astro
+---
+<section class="features">
+    <div class="container">
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.928A3 3 0 017.5 12.75w-2.55a3 3 0 01-6 0v2.55a3 3 0 011.658-2.77m1.565-2.083A3 3 0 0110.5 6h3a3 3 0 012.342 1.059m-9.42 2.083A3 3 0 001.5 12.75v2.55a3 3 0 005.342 2.06m7.5-2.928a3 3 0 00-1.658 2.77v2.55a3 3 0 005.342-2.06m-1.565 2.083A3 3 0 0113.5 18h-3a3 3 0 01-2.342-1.059" /></svg>
+            <h3>50 Kişilik Uzman Ekip</h3>
+            <p>Montaj, tamir ve destek operasyonlarımızda geniş ve tecrübeli bir kadro ile hizmet veriyoruz.</p>
+        </div>
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <h3>20+ Yıllık Tecrübe</h3>
+            <p>Sektördeki deneyimimizle, her projeye özel en doğru ve en kaliteli çözümleri üretiyoruz.</p>
+        </div>
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 100 15 7.5 7.5 0 000-15zM21 21l-5.197-5.197" /></svg>
+            <h3>Ücretsiz Keşif</h3>
+            <p>İzmir'in her yerine ücretsiz keşif hizmetimizle projenizi yerinde analiz edip en uygun teklifi sunuyoruz.</p>
+        </div>
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582" /></svg>
+            <h3>Uluslararası Pazar</h3>
+            <p>Avrupa ve Arabistan pazarlarına demonte ve montaj dahil satışlarla global bir markayız.</p>
+        </div>
+    </div>
+</section>
+<style>
+    .features {
+        background-color: var(--dark-gray);
+        padding: 4rem 2rem;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        gap: 2rem;
+    }
+    .feature-item {
+        text-align: center;
+    }
+    .feature-item svg {
+        width: 50px;
+        height: 50px;
+        color: var(--primary-blue);
+        margin-bottom: 1rem;
+    }
+    .feature-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .feature-item p {
+        color: var(--secondary-text);
+    }
+
+    /* Tablet ve üzeri için Grid Düzeni (MOBİL UYUM) */
+    @media (min-width: 768px) {
+        .container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    /* Geniş ekranlar için Grid Düzeni (MOBİL UYUM) */
+    @media (min-width: 1024px) {
+        .container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>

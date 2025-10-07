@@ -1,0 +1,290 @@
+---
+const phoneNumber = "05XX XXX XX XX";
+const emailAddress = "info@izmirtentemarket.com";
+const whatsappNumber = "905xxxxxxxxx";
+
+const navLinks = [
+  { text: "Kurumsal", href: "/kurumsal", submenu: [
+      { text: "Hakkımızda", href: "/kurumsal/hakkimizda" },
+      { text: "Kalite Politikamız", href: "/kurumsal/kalite-politikamiz" },
+      { text: "Ekibimiz", href: "/kurumsal/ekibimiz" },
+  ]},
+  { text: "Ürünler", href: "/urunler" },
+  { text: "Hizmetler", href: "/hizmetler" },
+  { text: "Blog", href: "/blog" },
+  { text: "İletişim", href: "/iletisim" },
+];
+---
+
+<header id="site-header" class="site-header">
+    <div class="header-top-bar">
+        <div class="container top-bar-container">
+            <div class="contact-info">
+                <a href={`tel:${phoneNumber.replace(/\s/g, '')}`} class="contact-item" aria-label="Telefon ile arayın">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+                </a>
+                <a href={`mailto:${emailAddress}`} class="contact-item" aria-label="E-posta gönderin">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-10 7L2 8V6l10 7 10-7v2z"></path></svg>
+                </a>
+                <a href={`https://wa.me/${whatsappNumber}`} class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp'tan yazın">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.07 4.93A10 10 0 0 0 12 2 10 10 0 0 0 4.93 19.07 10 10 0 0 0 12 22c5.52 0 10-4.48 10-10a10 10 0 0 0-2.93-7.07zM12 20.2c-1.21 0-2.38-.2-3.47-.57l-3.9 1.05 1.07-3.81a8.24 8.24 0 0 1-1.89-5.02c0-4.51 3.66-8.16 8.16-8.16 2.2 0 4.28.86 5.77 2.34s2.34 3.57 2.34 5.77-3.66 8.16-8.16 8.16zm3.5-7.42c-.18-.09-1.05-.52-1.21-.58-.17-.06-.29-.09-.42.09-.12.18-.46.58-.56.7-.1.12-.2.14-.37.04-.17-.09-1.02-.38-1.94-1.2s-1.35-1.54-1.51-1.81c-.16-.27-.08-.42.09-.55.15-.12.34-.31.51-.47.17-.16.22-.27.34-.46s.06-.34-.03-.63c-.09-.27-1.05-2.52-1.44-3.45-.39-.93-.78-.79-.95-.81-.17-.02-.37-.02-.56-.02-.2 0-.5.08-.76.36-.26.28-.98 1.1-1.13 2.68s1.16 3.12 1.32 3.32c.16.19 1.94 3.2 4.83 4.52.7.32 1.24.5 1.67.65.68.23 1.25.19 1.71.12.51-.09 1.54-.63 1.75-1.23.21-.6.21-1.12.15-1.23-.06-.12-.24-.19-.42-.28z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container main-header-container">
+            <a href="/" class="logo">
+                <img src="../../public/logo.png" alt="İTM Architecture Logo" />
+            </a>
+
+            <nav class="desktop-nav">
+                <ul>
+                  {navLinks.map(link => (
+                    <li>
+                      <a href={link.href}>{link.text}</a>
+                      {link.submenu && (
+                        <ul class="dropdown">
+                          {link.submenu.map(sublink => (
+                            <li><a href={sublink.href}>{sublink.text}</a></li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button class="action-btn lang-current">
+                        <img src="https://flagcdn.com/w20/tr.png" alt="Türkçe Bayrağı" width="20" height="15">
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <ul class="lang-dropdown">
+                        <li><a href="/en"><img src="https://flagcdn.com/w20/gb.png" alt="English Flag" width="20" height="15"><span>EN</span></a></li>
+                        <li><a href="/de"><img src="https://flagcdn.com/w20/de.png" alt="German Flag" width="20" height="15"><span>DE</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Menüyü Aç">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<nav id="offcanvas-menu" class="offcanvas-menu"></nav>
+<div id="offcanvas-menu-backdrop" class="offcanvas-menu-backdrop"></div>
+
+<script is:inline>
+  function setupHeader() {
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const offcanvasMenu = document.getElementById('offcanvas-menu');
+    const backdrop = document.getElementById('offcanvas-menu-backdrop');
+    const body = document.body;
+
+    if (!toggleButton || !offcanvasMenu || !backdrop) return;
+    if (toggleButton.dataset.initialized) return;
+    
+    toggleButton.dataset.initialized = 'true';
+
+    function initializeMobileMenu() {
+        const logo = document.querySelector('.logo');
+        const desktopNav = document.querySelector('.desktop-nav');
+        const langSwitcher = document.querySelector('.header-actions .lang-switcher');
+        const phoneLink = document.querySelector('.contact-info a[href^="tel:"]');
+        const whatsappLink = document.querySelector('.contact-info a[href^="https://wa.me"]');
+        
+        let menuContent = '';
+        if (logo) {
+            const logoClone = logo.cloneNode(true);
+            logoClone.classList.add('mobile-menu-logo');
+            menuContent += logoClone.outerHTML;
+        }
+        if (desktopNav) menuContent += desktopNav.innerHTML;
+        if (langSwitcher) {
+             const langSwitcherClone = langSwitcher.cloneNode(true);
+             const langCurrent = langSwitcherClone.querySelector('.lang-current');
+             if(langCurrent) {
+                const newLink = document.createElement('a');
+                newLink.href = '#';
+                newLink.classList.add('lang-current-mobile');
+                newLink.innerHTML = `
+                    <span>
+                        <img src="https://flagcdn.com/w20/tr.png" alt="Türkçe Bayrağı" width="20" height="15"> Türkçe
+                    </span>
+                    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                `;
+                langSwitcherClone.replaceChild(newLink, langCurrent);
+             }
+             menuContent += langSwitcherClone.outerHTML;
+        }
+
+        if (phoneLink && whatsappLink) {
+            menuContent += `<div class="offcanvas-contact-info">`;
+            const phoneClone = phoneLink.cloneNode(true);
+            phoneClone.innerHTML += '<span>Telefon Et</span>';
+            menuContent += phoneClone.outerHTML;
+            const whatsappClone = whatsappLink.cloneNode(true);
+            whatsappClone.innerHTML += '<span>WhatsApp\'tan Yazın</span>';
+            menuContent += whatsappClone.outerHTML;
+            menuContent += `</div>`;
+        }
+        offcanvasMenu.innerHTML = menuContent;
+
+        offcanvasMenu.querySelectorAll('li > a').forEach(parentLink => {
+            const dropdown = parentLink.nextElementSibling;
+            if (dropdown && dropdown.classList.contains('dropdown')) {
+                const toggleIcon = document.createElement('span');
+                toggleIcon.classList.add('dropdown-toggle-icon');
+                toggleIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>`;
+                parentLink.appendChild(toggleIcon);
+                
+                parentLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    dropdown.classList.toggle('is-open');
+                    parentLink.classList.toggle('is-active');
+                });
+            }
+        });
+        
+        const mobileLangSwitcher = offcanvasMenu.querySelector('.lang-switcher');
+        if (mobileLangSwitcher) {
+            const langCurrent = mobileLangSwitcher.querySelector('.lang-current-mobile');
+            const langDropdown = mobileLangSwitcher.querySelector('.lang-dropdown');
+            if (langCurrent && langDropdown) {
+                langCurrent.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    langDropdown.classList.toggle('is-open');
+                    langCurrent.classList.toggle('is-active');
+                });
+            }
+        }
+    }
+
+    const openMenu = () => {
+      initializeMobileMenu();
+      toggleButton.classList.add('is-active');
+      offcanvasMenu.classList.add('is-active');
+      backdrop.classList.add('is-active');
+      body.classList.add('no-scroll');
+    };
+
+    const closeMenu = () => {
+      toggleButton.classList.remove('is-active');
+      offcanvasMenu.classList.remove('is-active');
+      backdrop.classList.remove('is-active');
+      body.classList.remove('no-scroll');
+    };
+
+    toggleButton.addEventListener('click', () => {
+      offcanvasMenu.classList.contains('is-active') ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+  }
+
+  document.addEventListener('astro:page-load', setupHeader);
+  setupHeader();
+</script>
+
+<style>
+    /* GÜNCELLEME: Yükseklik değişkenleri yeni boyutlara göre ayarlandı */
+    :root {
+      --header-top-bar-height: 90px;
+      --header-main-height: 160px;
+      --header-total-height: calc(var(--header-top-bar-height) + var(--header-main-height));
+    }
+    .site-header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background-color: white; 
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    .header-top-bar {
+      height: var(--header-top-bar-height);
+      background: #f8f9fa;
+      border-bottom: 1px solid var(--border-color, #e9ecef);
+      display: flex;
+      align-items: center;
+    }
+    .top-bar-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .contact-info { 
+        display: flex; 
+        gap: 2rem;
+    }
+    .contact-item {
+      position: relative;
+      color: var(--secondary-text-color, #6c757d);
+      padding: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .contact-item svg { 
+      /* GÜNCELLEME: İkonlar daha da büyütüldü */
+      width: 48px;
+      height: 48px; 
+      display: block; 
+    }
+    .contact-item:hover { background-color: #e9ecef; color: var(--text-color, #212529); }
+    
+    .header-main { 
+      height: var(--header-main-height); 
+      display: flex; 
+      align-items: center; 
+    }
+    .main-header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+    .logo { 
+      /* GÜNCELLEME: Logo 125px boyutuna getirildi */
+      height: 125px; 
+      flex-shrink: 0; 
+      display: flex; 
+      align-items: center; 
+    }
+    .logo img { height: 100%; width: auto; }
+
+    /* Diğer stiller aynı kalacak... */
+    .desktop-nav { display: none; } @media (min-width: 1024px) { .desktop-nav { display: flex; position: absolute; width: 100%; left: 0; justify-content: center; pointer-events: none; } .desktop-nav > ul { pointer-events: auto; list-style: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 2.5rem; } .desktop-nav > ul > li { position: relative; } .desktop-nav a { text-decoration: none; color: var(--text-color, #212529); font-weight: 500; padding: 0.5rem 0; position: relative; } .desktop-nav > ul > li > a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background-color: var(--accent-color, #007bff); transform: scaleX(0); transition: transform 0.3s ease; } .desktop-nav > ul > li:hover > a::after { transform: scaleX(1); } .desktop-nav .dropdown { position: absolute; top: 100%; left: 50%; margin-top: 10px; background: white; list-style: none; padding: 1rem; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); min-width: 220px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; } .desktop-nav > ul > li:hover > .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); } .desktop-nav .dropdown li a { display: block; padding: 0.5rem; border-radius: 4px; transition: background-color 0.2s ease; } .desktop-nav .dropdown li a:hover { background-color: #f8f9fa; } }
+    .header-actions { display: none; } @media (min-width: 1024px) { .header-actions { display: flex; align-items: center; gap: 0.5rem; } } .action-btn { background: none; border: 1px solid transparent; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease; } .action-btn:hover { background-color: #f8f9fa; border-color: #e5e5e5; }
+    .lang-switcher { position: relative; } .lang-dropdown { position: absolute; top: 100%; right: 0; background: white; list-style: none; padding: 0.5rem; margin-top: 0.5rem; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); min-width: 120px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; } .lang-switcher:hover .lang-dropdown { opacity: 1; visibility: visible; transform: translateY(0); } .lang-dropdown li a { display: flex; align-items: center; gap: 10px; padding: 0.5rem; text-decoration: none; color: var(--text-color, #212529); border-radius: 4px; transition: background-color 0.2s ease; } .lang-dropdown li a:hover { background-color: #f8f9fa; }
+    .mobile-menu-toggle { display: flex; flex-direction: column; justify-content: space-around; width: 30px; height: 24px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1011; } @media (min-width: 1024px) { .mobile-menu-toggle { display: none; } } .mobile-menu-toggle span { width: 30px; height: 3px; background: var(--text-color, #212529); border-radius: 10px; transition: all 0.3s linear; position: relative; transform-origin: 1px; } .mobile-menu-toggle.is-active span:nth-of-type(1) { transform: rotate(45deg); } .mobile-menu-toggle.is-active span:nth-of-type(2) { opacity: 0; transform: translateX(20px); } .mobile-menu-toggle.is-active span:nth-of-type(3) { transform: rotate(-45deg); }
+
+    .offcanvas-menu-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1001; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+    .offcanvas-menu-backdrop.is-active { opacity: 1; visibility: visible; }
+    .offcanvas-menu { position: fixed; top: 0; left: 0; width: 320px; max-width: 90vw; height: 100%; background: white; z-index: 1010; padding: 2rem; transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow-y: auto; display: flex; flex-direction: column; }
+    .offcanvas-menu.is-active { transform: translateX(0); }
+    
+    .mobile-menu-logo {
+      /* GÜNCELLEME: Logo 125px boyutuna getirildi */
+      height: 125px; 
+      margin-bottom: 2rem; 
+      border-bottom: 1px solid var(--border-color, #e9ecef); 
+      padding-bottom: 1.5rem; 
+    }
+    .mobile-menu-logo img { height: 100%; width: auto; }
+
+    .offcanvas-menu > ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; } .offcanvas-menu li a { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; font-size: 1.2rem; font-weight: 500; color: var(--text-color, #212529); text-decoration: none; } .dropdown-toggle-icon { display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; transition: transform 0.3s ease; } .offcanvas-menu li > a.is-active .dropdown-toggle-icon { transform: rotate(180deg); } .offcanvas-menu .dropdown { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; padding-left: 1rem; } .offcanvas-menu .dropdown.is-open { max-height: 500px; } .offcanvas-menu .dropdown li a { font-size: 1rem; color: var(--secondary-text-color, #6c757d); }
+
+    .offcanvas-menu .lang-switcher { margin-top: 1rem; border-top: 1px solid var(--border-color, #e9ecef); padding-top: 1rem; }
+    .lang-current-mobile { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0.5rem 0; font-size: 1.2rem; font-weight: 500; text-decoration: none; color: inherit; }
+    .lang-current-mobile span { display: flex; align-items: center; gap: 10px; } .lang-current-mobile.is-active .chevron { transform: rotate(180deg); } .offcanvas-menu .lang-dropdown { position: static; box-shadow: none; border: none; background: transparent; padding-left: 1rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; } .offcanvas-menu .lang-dropdown.is-open { max-height: 200px; } .offcanvas-menu .lang-dropdown li a { font-size: 1rem; padding: 0.5rem 0; }
+
+    .offcanvas-contact-info { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color, #e9ecef); display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; } .offcanvas-contact-info a { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; border-radius: 8px; background-color: #f8f9fa; text-decoration: none; color: var(--text-color, #212529); font-weight: 500; transition: background-color 0.2s ease; } .offcanvas-contact-info a:hover { background-color: #e9ecef; } .offcanvas-contact-info svg { width: 32px; height: 32px; margin-bottom: 0.5rem; }
+
+    body.no-scroll { overflow: hidden; }
+</style>

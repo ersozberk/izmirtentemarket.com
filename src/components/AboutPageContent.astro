@@ -1,0 +1,244 @@
+---
+import { Image } from 'astro:assets';
+import aboutHeroImage from '../../public/images/about-hero.jpg';
+import aboutStoryImage from '../../public/images/about-story.jpg';
+---
+
+<section class="about-hero">
+    <div class="hero-background">
+        <Image src={aboutHeroImage} alt="Modern mimari detaylar" class="hero-bg-img" quality={80} format="webp"/>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+        <h1>Hikayemiz: Mekanlara Değer Katan Tutku</h1>
+        <p>Kalite, estetik ve dayanıklılığı bir araya getirerek yaşam alanlarınızı yeniden şekillendiriyoruz.</p>
+    </div>
+</section>
+
+<section class="story-section">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-image">
+                <Image src={aboutStoryImage} alt="İzmir Tente Market ekibi çalışırken" format="webp" quality={80}/>
+            </div>
+            <div class="story-content">
+                <h2>İzmir'in Kalbinde Doğan Kalite ve Güven</h2>
+                <p>
+                    İzmir Tente Market olarak, 20 yılı aşkın tecrübemizle Ege'nin mimari dokusuna uygun, yenilikçi ve fonksiyonel çözümler sunuyoruz. Kurulduğumuz ilk günden bu yana amacımız, sadece bir ürün satmak değil, müşterilerimizin hayallerindeki dış mekan yaşam alanlarını gerçeğe dönüştürmektir.
+                </p>
+                <p>
+                    Her bir proje, bizim için yeni bir başlangıçtır. Alanında uzman ekibimizle, projenin her aşamasında titizlikle çalışır, en kaliteli malzemeleri modern tasarımlarla birleştiririz. Çünkü inanıyoruz ki, mekanlar sadece yapılardan ibaret değildir; anıların biriktiği, huzurun bulunduğu yaşam alanlarıdır.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>İlkelerimiz</h2>
+            <p>Başarımızın temelini oluşturan ve her projemizde koruduğumuz değerlerimiz.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3>Müşteri Odaklılık</h3>
+                <p>Sizin ihtiyaçlarınızı dinliyor, beklentilerinizin ötesinde çözümler sunmak için çalışıyoruz.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><line x1="12" y1="2" x2="12" y2="4"></line></svg>
+                </div>
+                <h3>Yenilikçi Tasarım</h3>
+                <p>Estetiği ve fonksiyonelliği bir araya getiren, mekanınıza değer katan modern tasarımlar geliştiriyoruz.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h3>Ustalık ve Kalite</h3>
+                <p>Yalnızca en dayanıklı malzemeleri kullanıyor, her detayı uzman ekibimizin titiz işçiliğiyle tamamlıyoruz.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Hayalinizdeki Mekanı Birlikte Tasarlayalım.</h2>
+        <p>Projeniz hakkında konuşmak ve ücretsiz keşif hizmetimizden yararlanmak için bizimle iletişime geçin.</p>
+        <a href="/iletisim" class="cta-button">Teklif Alın</a>
+    </div>
+</section>
+
+<style>
+    /* 1. Hero Bölümü Stilleri */
+    .about-hero {
+        position: relative;
+        height: 60vh;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .hero-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Görseli karartarak yazıyı okunur yapar */
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .hero-content p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
+    }
+
+    /* 2. Hikaye Bölümü Stilleri */
+    .story-section {
+        padding: 6rem 0;
+        background-color: #ffffff;
+    }
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    .story-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .story-content h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    .story-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--secondary-text-color, #6c757d);
+    }
+    .story-content p:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    /* 3. Değerler Bölümü Stilleri */
+    .values-section {
+        padding: 6rem 0;
+        background-color: #f8f9fa;
+    }
+    .section-title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .section-title p {
+        font-size: 1.1rem;
+        color: var(--secondary-text-color, #6c757d);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    .value-item {
+        text-align: center;
+        padding: 2.5rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        border: 1px solid var(--border-color, #e9ecef);
+    }
+    .value-icon {
+        color: var(--accent-color, #007bff);
+        margin-bottom: 1.5rem;
+    }
+    .value-item h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .value-item p {
+        line-height: 1.7;
+        color: var(--secondary-text-color, #6c757d);
+    }
+
+    /* 4. CTA Bölümü Stilleri */
+    .cta-section {
+        padding: 5rem 0;
+        background-color: var(--text-color, #212529);
+        color: white;
+        text-align: center;
+    }
+    .cta-section h2 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .cta-section p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background-color: var(--accent-color, #007bff);
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        border-radius: 8px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    .cta-button:hover {
+        background-color: #0069d9;
+        transform: translateY(-2px);
+    }
+
+    /* Mobil Cihazlar İçin Ayarlamalar */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        .story-grid {
+            grid-template-columns: 1fr;
+        }
+        .story-image {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

@@ -1,0 +1,66 @@
+---
+// src/components/BlogSlider.astro
+import { Image } from 'astro:assets';
+import blog1 from '../../public/images/blog-1.jpg';
+import blog2 from '../../public/images/blog-2.jpg';
+---
+<section class="blog-slider-section">
+    <div class="container">
+        <h2>Blog</h2>
+        <div class="swiper blog-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="/blog/yazi-1" class="blog-card">
+                        <Image src={blog1} alt="Blog Yazısı 1" class="blog-card-image" format="webp"/>
+                        <div class="blog-card-content">
+                            <h3>Bioklimatik Pergola'nın Avantajları</h3>
+                            <div class="blog-card-overlay">
+                                <p>Dört mevsim konfor sunan bioklimatik pergolanın neden en iyi seçim olduğunu keşfedin...</p>
+                                <span>Okumaya Devam Et &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                 <div class="swiper-slide">
+                    <a href="/blog/yazi-2" class="blog-card">
+                        <Image src={blog2} alt="Blog Yazısı 2" class="blog-card-image" format="webp"/>
+                        <div class="blog-card-content">
+                            <h3>Tente Bakımı İçin İpuçları</h3>
+                            <div class="blog-card-overlay">
+                                <p>Tentenizin ömrünü uzatmak için bilmeniz gereken pratik bakım ve temizlik yöntemleri...</p>
+                                <span>Okumaya Devam Et &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    import Swiper from 'swiper';
+    import 'swiper/css';
+    const blogSwiper = new Swiper('.blog-swiper', { /* ... (ServicesSlider'daki gibi ayarlar) ... */ });
+</script>
+<style>
+    .blog-slider-section { padding: 6rem 0; }
+    .blog-slider-section h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+    .blog-card { display: block; text-decoration: none; color: inherit; position: relative; border-radius: 8px; overflow: hidden; }
+    .blog-card-image { width: 100%; height: 400px; object-fit: cover; transition: transform 0.4s ease; }
+    .blog-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; color: white; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);}
+    .blog-card h3 { font-size: 1.5rem; }
+    .blog-card-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 2rem;
+        transform: translateY(100%);
+        transition: transform 0.4s ease-in-out;
+    }
+    .blog-card:hover .blog-card-overlay {
+        transform: translateY(0);
+    }
+    .blog-card:hover .blog-card-image {
+        transform: scale(1.05);
+    }
+</style>

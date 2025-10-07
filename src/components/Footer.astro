@@ -1,0 +1,139 @@
+---
+// src/components/Footer.astro (Yeniden Yazılmış, Kaliteli Versiyon)
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col" id="about-col">
+                <a href="/" class="footer-logo">
+                    <!-- public klasörüne 'logo-white.svg' adında, şeffaf arkaplanlı beyaz bir logo ekleyin -->
+                    <img src="../../public/logo.png" alt="İTM Architecture Beyaz Logo" />
+                </a>
+                <p class="footer-motto">Yaşam alanlarınıza değer katan modern gölgelendirme sistemleri. Kalite ve estetiği bir arada sunuyoruz.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" title="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3l-.5 3h-2.5v6.8A10 10 0 0 0 22 12z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram" title="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.7 2 8.33 2.02 7.15 2.07c-1.18.05-2 .24-2.69.52-.72.29-1.3.7-1.88 1.29s-.99 1.16-1.29 1.88c-.28.69-.47 1.51-.52 2.69C2.02 8.33 2 8.7 2 12s.02 3.67.07 4.85c.05 1.18.24 2 .52 2.69.29.72.7 1.3 1.29 1.88s1.16.99 1.88 1.29c.69.28 1.51.47 2.69.52C8.33 21.98 8.7 22 12 22s3.67-.02 4.85-.07c1.18-.05 2-.24 2.69-.52.72-.29 1.3-.7 1.88-1.29s.99-1.16 1.29-1.88c.28-.69.47-1.51.52-2.69C21.98 15.67 22 15.3 22 12s-.02-3.67-.07-4.85c-.05-1.18-.24-2-.52-2.69a4.89 4.89 0 0 0-1.29-1.88 4.89 4.89 0 0 0-1.88-1.29c-.69-.28-1.51-.47-2.69-.52C15.67 2.02 15.3 2 12 2zm0 1.8c3.23 0 3.58.01 4.85.07 1.08.05 1.68.22 2.02.37.46.19.82.42 1.18.78.36.36.59.72.78 1.18.15.34.32.94.37 2.02.06 1.27.07 1.62.07 4.85s-.01 3.58-.07 4.85c-.05 1.08-.22 1.68-.37 2.02-.19.46-.42.82-.78 1.18-.36.36-.72.59-1.18-.78-.34.15-.94.32-2.02-.37-1.27.06-1.62.07-4.85.07s-3.58-.01-4.85-.07c-1.08-.05-1.68-.22-2.02-.37-.46-.19-.82-.42-1.18-.78-.36-.36-.59-.72-.78-1.18-.15-.34-.32-.94-.37-2.02C4.01 15.58 4 15.23 4 12s.01-3.58.07-4.85c.05-1.08.22-1.68.37-2.02.19-.46.42-.82.78-1.18.36-.36.72-.59-1.18-.78.34-.15.94-.32 2.02-.37C8.42 4.01 8.77 4 12 4zm0 2.88A5.12 5.12 0 1 0 12 17.12 5.12 5.12 0 0 0 12 6.88zm0 8.44A3.32 3.32 0 1 1 12 8.68a3.32 3.32 0 0 1 0 6.64zm6.36-8.19a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 15v-5h-2v5h2zm-1-6.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm6 6.5V14c0-1.66-1.34-3-3-3s-3 1.34-3 3v4.5h2V14c0-.55.45-1 1-1s1 .45 1 1v4.5h2z"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Ürünler</h4>
+                <ul>
+                    <li><a href="/urunler/bioklimatik-pergola">Bioklimatik Pergola</a></li>
+                    <li><a href="/urunler/rolling-roof">Rolling Roof</a></li>
+                    <li><a href="/urunler/pergola-sistemleri">Pergola Sistemleri</a></li>
+                    <li><a href="/urunler/tente-sistemleri">Tente Sistemleri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kurumsal</h4>
+                <ul>
+                    <li><a href="/kurumsal/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                    <li><a href="/kalite-politikamiz">Kalite Politikamız</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>İletişim</h4>
+                <address>
+                    Manavkuyu Mah. Sakarya Cd. No:XX<br>
+                    Bayraklı, İzmir, Türkiye<br>
+                    <strong><a href="tel:+905xxxxxxxxx">05XX XXX XX XX</a></strong><br>
+                    <strong><a href="mailto:info@izmirtentemarket.com">info@izmirtentemarket.com</a></strong>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>&copy; {year} İTM Architecture. Tüm Hakları Saklıdır.</p>
+                <nav>
+                    <a href="/sitemap">Site Haritası</a>
+                    <span>|</span>
+                    <a href="/impressum">Künye</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .site-footer { 
+        background-color: #f8f9fa;
+        color: #000000ff;
+        padding-top: 5rem;
+        font-size: 0.95rem;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        padding-bottom: 4rem;
+    }
+    .footer-logo { display: inline-block; margin-bottom: 1.5rem; }
+    .footer-logo img { height: 140px; width: auto; }
+    .footer-motto { line-height: 1.8; margin-bottom: 1.5rem; }
+    .social-links { display: flex; gap: 1rem; }
+    .social-links a { 
+        color: #000000ff; 
+        transition: color 0.2s ease;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+    }
+    .social-links a:hover { color: white; }
+    .footer-col h4 {
+        color: black;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+    .footer-col h4::after {
+        color: black;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background-color: var(--accent-color);
+    }
+    .footer-col ul { list-style: color: #040404ff; none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 1rem; }
+    .footer-col a { color: #040404ff; text-decoration: none; transition: color 0.2s ease; }
+    .footer-col a:hover { color: primary-blue);; }
+    .footer-col address { font-style: normal; line-height: 1.8; }
+    .footer-col address strong { font-weight: 500; }
+    .footer-col address a {
+        color: black; /* Telefon ve mail daha belirgin olsun */
+    }
+
+    .footer-bottom { border-top: 1px solid #333; padding: 1.5rem 0; }
+    .bottom-container { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 1rem; 
+        text-align: center;
+    }
+    .bottom-container nav { display: flex; gap: 0.5rem; align-items: center; }
+    
+    @media (min-width: 768px) {
+        .bottom-container { flex-direction: row; justify-content: space-between; }
+    }
+    @media (min-width: 992px) {
+        .footer-grid {
+            grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Sütun genişliklerini özelleştir */
+        }
+    }
+</style>
+

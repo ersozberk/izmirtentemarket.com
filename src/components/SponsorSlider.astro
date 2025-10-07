@@ -1,0 +1,60 @@
+---
+// src/components/SponsorSlider.astro
+// Logoları public/sponsors/ klasörüne atın
+const sponsors = [
+    { src: '/sponsors/somfy.svg', alt: 'Somfy Logo' },
+    { src: '/sponsors/becker.svg', alt: 'Becker Logo' },
+    { src: '/sponsors/asa.svg', alt: 'Asa Logo' },
+    { src: '/sponsors/schuco.svg', alt: 'Schüco Logo' },
+    { src: '/sponsors/gu.svg', alt: 'GU Logo' },
+];
+const allSponsors = [...sponsors, ...sponsors]; // Animasyonun kesintisiz olması için logoları ikiye katlıyoruz
+---
+<section class="sponsor-slider-section">
+    <div class="sponsor-slider">
+        <div class="sponsor-track">
+            {allSponsors.map(sponsor => (
+                <div class="sponsor-slide">
+                    <img src={sponsor.src} alt={sponsor.alt} />
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+<style>
+    .sponsor-slider-section {
+        padding: 4rem 0;
+        overflow: hidden; /* Kenarlardan taşan logoları gizler */
+    }
+    .sponsor-slider {
+        position: relative;
+        width: 100%;
+    }
+    .sponsor-track {
+        display: flex;
+        width: calc(200px * 10); /* (Slayt Genişliği * Toplam Slayt Sayısı) */
+        animation: scroll 30s linear infinite;
+    }
+    .sponsor-slide {
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2rem;
+    }
+    .sponsor-slide img {
+        max-height: 50px;
+        width: auto;
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+    .sponsor-slide:hover img {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 5)); } /* (Slayt Genişliği * Orijinal Slayt Sayısı) */
+    }
+</style>

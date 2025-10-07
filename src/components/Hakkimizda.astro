@@ -1,0 +1,36 @@
+---
+// src/components/HakkimizdaSection.astro
+import { Image } from 'astro:assets';
+import aboutImage from '../../public/images/uzman-ekip.jpg'; // src/assets içine 'uzman-ekip.jpg' adında bir görsel atın
+---
+<section class="about-us">
+    <div class="container about-container">
+        <div class="about-image">
+            <Image src={aboutImage} alt="İzmir Tente Market uzman ekibi" format="webp" />
+        </div>
+        <div class="about-text">
+            <span class="subtitle">20 Yıllık Tecrübe</span>
+            <h2>Mühendislik ve Tasarımı Buluşturan Güç</h2>
+            <p>İzmir Tente Market olarak, 20 yılı aşkın süredir sektördeki tecrübemiz ve 50 kişilik dinamik ekibimizle, her mekana özel çözümler üretiyoruz. Bizim için her proje, sadece bir tente veya pergola değil, yaşam alanlarınıza değer katan bir sanat eseridir.</p>
+            <ul>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> Müşteri Odaklı Yaklaşım</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> Yüksek Kaliteli Malzeme</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> Zamanında Teslimat ve Montaj</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<style>
+    .about-us { padding: 4rem 0; background-color: var(--secondary-bg); }
+    .about-container { display: grid; gap: 3rem; align-items: center; }
+    .about-image img { border-radius: 12px; width: 100%; }
+    .about-text h2 { font-size: 2.5rem; margin: 0.5rem 0 1.5rem; }
+    .about-text p { color: var(--secondary-text); font-size: 1.1rem; }
+    .about-text ul { list-style: none; padding: 0; margin-top: 2rem; }
+    .about-text li { display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 1rem; }
+    .about-text li svg { width: 20px; height: 20px; color: var(--primary-blue); }
+
+    @media (min-width: 992px) {
+        .about-container { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>

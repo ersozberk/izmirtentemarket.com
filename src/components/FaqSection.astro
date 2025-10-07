@@ -1,0 +1,112 @@
+---
+// src/components/FaqSection.astro
+---
+<section class="faq-section">
+    <div class="container faq-container">
+        <div class="faq-intro">
+            <h2>Sorularınız mı var?</h2>
+            <p>Ürünlerimiz, hizmetlerimiz ve süreçlerimiz hakkında en çok merak edilen soruların cevaplarını burada bulabilirsiniz.</p>
+        </div>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Alüminyum nedir ve neden tercih edilir?</span>
+                    <span class="icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>Alüminyum hafif, dayanıklı ve korozyona karşı dirençli bir metaldir. Enerji verimliliği, geri dönüştürülebilirliği ve ısı/elektrik iletkenliği sayesinde birçok sektörde yaygın olarak kullanılır.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Isı yalıtımlı alüminyum ürünleri neden tercih edilmeli?</span>
+                    <span class="icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>Isı yalıtımlı (termal kırılmalı) alüminyum profiller, iç ve dış ortam arasındaki ısı transferini büyük ölçüde azaltır. Bu, kışın ısıyı içeride, yazın ise dışarıda tutarak enerji tasarrufu sağlar ve yaşam alanlarınızda konforu artırır.</p>
+                </div>
+            </div>
+             <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Ürünlerinizin garantisi var mı?</span>
+                    <span class="icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>Tüm ürünlerimiz, malzeme ve işçilik hatalarına karşı 2 yıl garantilidir. Motor ve otomasyon sistemleri ise marka garantileri kapsamında 5 yıla kadar koruma altındadır. Detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            header.addEventListener('click', () => {
+                // Eğer zaten aktifse kapat
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    content.style.maxHeight = null;
+                } else {
+                    // Diğer tüm aktif olanları kapat
+                    accordionItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                    });
+                    // Tıklananı aç
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .faq-section { padding: 6rem 0; background-color: var(--secondary-bg, #f8f9fa); }
+    .faq-container { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: flex-start; max-width: 1100px; }
+    .faq-intro h2 { font-size: 2.5rem; font-weight: 500; }
+    .faq-intro p { color: var(--secondary-text-color); font-size: 1.1rem; line-height: 1.8; margin-top: 1rem; }
+    .accordion { display: flex; flex-direction: column; gap: 1rem; }
+    .accordion-item { background-color: var(--bg-color, white); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease; }
+    .accordion-item.active { border-color: var(--accent-color, #0056b3); box-shadow: 0 4px 15px rgba(0, 86, 179, 0.1); }
+    .accordion-header {
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        padding: 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+    .accordion-content p { padding: 0 1.5rem 1.5rem; color: var(--secondary-text-color); margin: 0; line-height: 1.8; }
+    .icon {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+    .icon::before, .icon::after {
+        content: '';
+        position: absolute;
+        background-color: var(--text-color);
+        transition: transform 0.3s ease;
+    }
+    .icon::before { top: 50%; left: 0; width: 100%; height: 2px; margin-top: -1px; }
+    .icon::after { top: 0; left: 50%; width: 2px; height: 100%; margin-left: -1px; }
+    .accordion-item.active .icon::after { transform: rotate(90deg); }
+    .accordion-item.active .icon::before { transform: scale(0); }
+
+    @media (min-width: 992px) {
+        .faq-container { grid-template-columns: 1fr 2fr; }
+    }
+</style>

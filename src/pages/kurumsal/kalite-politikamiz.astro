@@ -1,0 +1,21 @@
+---
+// src/pages/index.astro (TÜM GÜNCELLEMELERLE SON HALİ)
+import MainLayout from '../../layouts/MainLayout.astro';
+import QualityPolicyContent from '../../components/QualityPolicyContent.astro';
+
+---
+<MainLayout>
+ <main>
+    <QualityPolicyContent />
+ </main>
+</MainLayout>
+
+<style is:global>
+    /* Hero stilleri ve Swiper için genel stiller */
+    .hero-cinematic { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-cinematic video { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; z-index: -1; object-fit: cover; }
+    .hero-content { z-index: 1; text-align: center; color: white; }
+    .hero-content h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 500; }
+    .hero-content p { font-size: 1.2rem; margin: 1rem 0 2rem; max-width: 500px; }
+    .hero-content .btn { background-color: var(--accent-color); color: white; padding: 1rem 2.5rem; border-radius: 4px; text-decoration: none; font-weight: 500; transition: background-color 0.3s ease; }
+</style>

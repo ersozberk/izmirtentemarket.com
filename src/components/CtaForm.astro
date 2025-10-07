@@ -1,0 +1,52 @@
+---
+// src/components/CtaForm.astro
+---
+<section class="cta-form">
+    <div class="container cta-container">
+        <div class="cta-text">
+            <h2>Hayalinizdeki Projeyi Hayata Geçirelim</h2>
+            <p>Aklınızdaki projeyi, ihtiyaçlarınızı ve mekanınızı bize anlatın. Uzman ekibimizle size en uygun, en estetik ve en kaliteli çözümü tasarlayalım. Aşağıdaki formu doldurun, sizi hemen arayalım!</p>
+        </div>
+        <div class="form-wrapper">
+            <h3>Ücretsiz Keşif Formu</h3>
+            <form action="https://formspree.io/f/YUKARIDAKI_ADRESTEN_ALINAN_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Adınız Soyadınız</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon Numaranız</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız (İsteğe bağlı)</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Bilgilerimi Gönder</button>
+            </form>
+        </div>
+    </div>
+</section>
+<style>
+    .cta-form { padding: 4rem 0; background-color: var(--secondary-bg); }
+    .cta-container { display: grid; gap: 3rem; align-items: center; }
+    .cta-text h2 { font-size: 2.5rem; }
+    .cta-text p { color: var(--secondary-text); font-size: 1.1rem; }
+    .form-wrapper { background: var(--light-bg); padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .form-wrapper h3 { margin-top: 0; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+    }
+    button.btn-primary { width: 100%; font-size: 1.1rem; border: none; cursor: pointer; }
+
+    @media (min-width: 992px) {
+        .cta-container { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>
