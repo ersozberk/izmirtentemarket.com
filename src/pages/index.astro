@@ -1,5 +1,4 @@
 ---
-// src/pages/index.astro (TÜM GÜNCELLEMELERLE SON HALİ)
 import MainLayout from '../layouts/MainLayout.astro';
 import AboutIntro from '../components/AboutIntro.astro';
 import ServicesSlider from '../components/ServicesSlider.astro';
@@ -43,18 +42,16 @@ import BlogSlider from '../components/BlogSlider.astro';
     }
 
     /* HERO BÖLÜMÜ GÜNCELLEMELERİ */
-    .hero-cinematic {
-        position: relative;
-        
-        /* 100vh yerine 100dvh kullanarak mobil tarayıcı arayüzü değişikliklerine uyum sağla */
-        height: 100vh; /* Eski tarayıcılar için yedek */
-        height: 100dvh; /* Dinamik viewport yüksekliği */
-
-        width: 100%; /* Genişliğin ekranı aşmamasını garantile */
+   .hero-cinematic {
+        position: relative; /* Bu zaten doğru, yığınlama bağlamı oluşturur */
+        height: 100dvh;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden; /* Bu kuralın burada kalması doğru */
+        overflow: hidden;
+        /* Güvenlik için bir arka plan rengi ekleyin. Video yüklenemezse bu görünür. */
+        background-color: #000; /* Veya videonuza uygun koyu bir renk */
     }
 
     .hero-cinematic video {
@@ -62,22 +59,19 @@ import BlogSlider from '../components/BlogSlider.astro';
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        
-        /* min-width ve min-height yerine direkt width ve height kullanmak bazen daha stabil olur */
         width: 100%;
         height: 100%;
-
-        /* object-fit: cover; en-boy oranını koruyarak alanı kaplamasını sağlar. Bu doğru. */
         object-fit: cover;
-        z-index: -1;
+        /* z-index: -1; KURALINI BURADAN KALDIRIN! */
+        /* Video, varsayılan z-index: auto (veya 0) ile kalacak. */
     }
 
-    /* Hero-content stillerinizde bir sorun görünmüyor, olduğu gibi kalabilir. */
     .hero-content {
-        z-index: 1;
+        position: relative; /* Videonun üzerine çıkabilmesi için bir konumlandırma bağlamı verin. */
+        z-index: 1; /* Bu değer videonun z-index'inden (auto/0) daha yüksek olduğu için önde görünecektir. */
         text-align: center;
         color: white;
-        padding: 0 20px; /* Kenarlara çok yapışmaması için küçük bir padding eklemek iyi olabilir */
+        padding: 0 20px;
     }
 
     .hero-content h1 {
