@@ -1,7 +1,7 @@
 ---
 title: "Karpuz Tente"
 description: "Pencerelere ve işletme girişlerine estetik bir dokunuş katan, karpuz dilimi şeklindeki dekoratif ve şık tente modelleri."
-heroImage: "/images/products/karpuz-tente-hero.jpg"
+heroImage: "/images/products/gallery/karpuz-tente-hero.jpg"
 features:
   - icon: "sun"
     text: "Dekoratif ve Estetik Görünüm"

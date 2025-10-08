@@ -1,7 +1,7 @@
 ---
 title: "Klasik (Mafsallı) Tente"
 description: "Fonksiyonelliği ve geniş gölgeleme alanıyla en çok tercih edilen mafsallı tente modelleri, her türlü dış mekana uyum sağlar."
-heroImage: "/images/products/klasik-tente-hero.jpg"
+heroImage: "/images/products/gallery/klasik-tente-hero.jpg"
 features:
   - icon: "sun"
     text: "Geniş Gölgeleme Alanı"
@@ -12,10 +12,10 @@ features:
   - icon: "water"
     text: "Zengin Kumaş Seçenekleri"
 gallery:
-  - "/images/products/gallery/klasik-1.jpg"
-  - "/images/products/gallery/klasik-2.jpg"
-  - "/images/products/gallery/klasik-3.jpg"
-  - "/images/products/gallery/klasik-4.jpg"
+  - "/images/products/gallery/klasik-tente-1.jpg"
+  - "/images/products/gallery/klasik-tente-2.jpg"
+  - "/images/products/gallery/klasik-tente-3.jpg"
+  - "/images/products/gallery/klasik-tente-4.jpg"
 ---
 
 ### Zamansız ve Fonksiyonel Çözüm

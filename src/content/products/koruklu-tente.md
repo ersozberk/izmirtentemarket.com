@@ -1,7 +1,7 @@
 ---
 title: "Körüklü Tente"
 description: "Nostaljik görünümü ve yanlardan kapanabilme özelliğiyle balkonlar ve dükkan önleri için mahremiyet ve koruma sağlayan tente modeli."
-heroImage: "/images/products/koruklu-tente-hero.jpg"
+heroImage: "/images/products/gallery/koruklu-tente-hero.jpg"
 features:
   - icon: "sun"
     text: "Yanlardan Kapanma Özelliği"
@@ -12,10 +12,10 @@ features:
   - icon: "zap"
     text: "Pratik Manuel Kullanım"
 gallery:
-  - "/images/products/gallery/koruklu-1.jpg"
-  - "/images/products/gallery/koruklu-2.jpg"
-  - "/images/products/gallery/koruklu-3.jpg"
-  - "/images/products/gallery/koruklu-4.jpg"
+  - "/images/products/gallery/koruklu-tente-1.jpg"
+  - "/images/products/gallery/koruklu-tente-2.jpg"
+  - "/images/products/gallery/koruklu-tente-3.jpg"
+  - "/images/products/gallery/koruklu-tente-4.jpg"
 ---
 
 ### Klasik ve Fonksiyonel

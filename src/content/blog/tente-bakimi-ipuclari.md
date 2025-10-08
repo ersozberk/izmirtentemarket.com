@@ -2,7 +2,7 @@
 title: "Tente Ömrünü Uzatacak 4 Pratik Bakım İpucu"
 description: "Tentenizin yıllarca ilk günkü gibi kalması için yapmanız gereken basit ama etkili bakım adımlarını bu yazımızda bulabilirsiniz."
 pubDate: 2025-09-22
-heroImage: "/images/blog/tente-bakimi.jpg"
+heroImage: "/images/products/gallery/bioclimatic-2.jpg"
 ---
 
 Tente sistemleri, dış mekanlarınızı daha kullanışlı hale getiren harika yatırımlardır. Bu yatırımın ömrünü uzatmak ise düzenli ve doğru bakımdan geçer. İşte tentenizin ömrünü uzatacak 4 pratik ipucu:

@@ -1,7 +1,7 @@
 ---
 title: "Win Tente (Dikey Tente)"
 description: "Pencere ve balkonlar için dikey olarak çalışan, güneş ışığını ve rüzgarı kesen, modern ve pratik dış cephe gölgelendirme sistemi."
-heroImage: "/images/products/win-tente-hero.jpg"
+heroImage: "/images/products/gallery/win-tente-hero.jpg"
 features:
   - icon: "sun"
     text: "Etkili Güneş ve Isı Kontrolü"
@@ -12,10 +12,10 @@ features:
   - icon: "water"
     text: "Delikli (Screen) Kumaş Seçeneği"
 gallery:
-  - "/images/products/gallery/win-1.jpg"
-  - "/images/products/gallery/win-2.jpg"
-  - "/images/products/gallery/win-3.jpg"
-  - "/images/products/gallery/win-4.jpg"
+  - "/images/products/gallery/win-tente-1.jpg"
+  - "/images/products/gallery/win-tente-2.jpg"
+  - "/images/products/gallery/win-tente-3.jpg"
+  - "/images/products/gallery/win-tente-4.jpg"
 ---
 
 ### Modern Cepheler İçin Akıllı Çözüm

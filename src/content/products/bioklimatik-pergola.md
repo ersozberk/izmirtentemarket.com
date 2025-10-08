@@ -1,7 +1,7 @@
 ---
 title: "Bioklimatik Pergola Sistemleri"
 description: "Dört mevsim konfor sunan, açılır-kapanır alüminyum panelleriyle modern ve teknolojik bioklimatik pergola modellerimizi keşfedin."
-heroImage: "public/images/products/bioclimatic-hero.jpg"
+heroImage: "/images/products/gallery/bioclimatic-hero.jpg"
 features:
   - icon: "sun"
     text: "Ayarlanabilir Güneş Kontrolü"

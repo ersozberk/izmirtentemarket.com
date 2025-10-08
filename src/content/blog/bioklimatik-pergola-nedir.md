@@ -2,7 +2,7 @@
 title: "Bioklimatik Pergola Nedir ve Neden Tercih Edilmelidir?"
 description: "Modern mimarinin vazgeçilmezi bioklimatik pergolaların çalışma prensibini, avantajlarını ve yaşam alanlarınıza nasıl değer kattığını keşfedin."
 pubDate: 2025-10-07
-heroImage: "/images/blog/bioklimatik-pergola.jpg"
+heroImage: "/images/products/gallery/bioclimatic-1.jpg"
 ---
 
 Bioklimatik pergola sistemleri, dört mevsim konfor sunan, açılır-kapanır alüminyum panellerden oluşan modern gölgeleme çözümleridir. Geleneksel tentelerin aksine, bu sistemler hem güneş ışığını kontrol etmenize, hem de yağmur ve kardan tamamen korunmanıza olanak tanır.

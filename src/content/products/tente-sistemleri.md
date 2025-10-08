@@ -1,7 +1,7 @@
 ---
 title: "Tente Sistemleri"
 description: "Güneşten, yağmurdan ve rüzgardan korunmak için her ihtiyaca ve mekana uygun, zengin model ve kumaş seçeneklerine sahip tente çözümleri."
-heroImage: "/images/products/tente-sistemleri-hero.jpg"
+heroImage: "/images/products/gallery/tente-cesitleri-hero.jpg"
 features:
   - icon: "sun"
     text: "Etkili Güneş Koruması"

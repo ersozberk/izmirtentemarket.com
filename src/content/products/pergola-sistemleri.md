@@ -1,7 +1,7 @@
 ---
 title: "Pergola Tente Sistemleri"
 description: "Açılır-kapanır kumaş tavanıyla dış mekanlarınızı dört mevsim konforlu hale getiren estetik ve fonksiyonel pergola tente modellerimiz."
-heroImage: "/images/products/pergola-hero.jpg"
+heroImage: "/images/products/gallery/pergola-hero.jpg"
 features:
   - icon: "sun"
     text: "Güneş ve UV Koruması"

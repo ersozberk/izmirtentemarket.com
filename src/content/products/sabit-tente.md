@@ -1,7 +1,7 @@
 ---
 title: "Sabit Tente"
 description: "Kapı ve pencere önleri için kalıcı koruma sağlayan, her türlü hava koşuluna dayanıklı, sağlam ve estetik sabit tente çözümleri."
-heroImage: "/images/products/sabit-tente-hero.jpg"
+heroImage: "/images/products/gallery/sabit-tente-hero.jpg"
 features:
   - icon: "sun"
     text: "Dört Mevsim Kesintisiz Koruma"

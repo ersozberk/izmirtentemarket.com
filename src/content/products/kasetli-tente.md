@@ -1,7 +1,7 @@
 ---
 title: "Kasetli Tente"
 description: "Modern ve minimalist tasarımıyla öne çıkan kasetli tenteler, kapandığında kumaşı ve mekanizmayı dış etkenlerden koruyarak ömrünü uzatır."
-heroImage: "/images/products/kasetli-tente-hero.jpg"
+heroImage: "/images/products/gallery/kasetli-tente-hero.jpg"
 features:
   - icon: "sun"
     text: "Tam Koruma Kaseti"
@@ -12,10 +12,10 @@ features:
   - icon: "water"
     text: "Akrilik Kumaş Seçenekleri"
 gallery:
-  - "/images/products/gallery/kasetli-1.jpg"
-  - "/images/products/gallery/kasetli-2.jpg"
-  - "/images/products/gallery/kasetli-3.jpg"
-  - "/images/products/gallery/kasetli-4.jpg"
+  - "/images/products/gallery/kasetli-tente-1.jpg"
+  - "/images/products/gallery/kasetli-tente-2.jpg"
+  - "/images/products/gallery/kasetli-tente-3.jpg"
+  - "/images/products/gallery/kasetli-tente-4.jpg"
 ---
 
 ### Estetik ve Koruma Bir Arada
