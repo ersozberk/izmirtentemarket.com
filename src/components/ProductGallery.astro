@@ -49,6 +49,12 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
     </div>
 </section>
 
+<!-- Modal ekle -->
+<div id="gallery-modal" class="gallery-modal">
+    <span class="gallery-modal-close" tabindex="0" aria-label="Kapat">&times;</span>
+    <img id="gallery-modal-img" src="" alt="Büyük Görsel" />
+</div>
+
 <script is:inline>
     function setupGallery() {
         const gallery = document.querySelector('.product-gallery');
@@ -110,6 +116,42 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
             updateGalleryView();
         });
 
+        // Modal fonksiyonları
+        const modal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('gallery-modal-img');
+        const modalClose = document.querySelector('.gallery-modal-close');
+
+        function openModal(src, alt) {
+            modalImg.src = src;
+            modalImg.alt = alt;
+            modal.classList.add('is-open');
+            document.body.classList.add('no-scroll');
+        }
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modalImg.src = '';
+            document.body.classList.remove('no-scroll');
+        }
+        modalClose.addEventListener('click', closeModal);
+        modalClose.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') closeModal(); });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        // Hem mobilde hem webde açılır pencere için olaylar
+        galleryItems.forEach(item => {
+            const img = item.querySelector('img');
+            if (!img) return;
+            // Webde tıklama
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(img.src, img.alt);
+            });
+            // Mobilde dokunma
+            item.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                openModal(img.src, img.alt);
+            }, { passive: false });
+        });
+
         // Başlangıç durumu için galeriyi ilk kez yükle
         updateGalleryView();
         gallery.dataset.initialized = 'true';
@@ -120,7 +162,6 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
     // İlk yüklemede çalışması için (opsiyonel, page-load genellikle yeterlidir)
     setupGallery();
 </script>
-
 
 <style>
     .product-gallery { 
@@ -209,7 +250,7 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
         display: block;
     }
     .gallery-item:hover img {
-        transform: scale(3.05);
+        transform: scale(1.35);
     }
     
     /* "Daha Fazla Göster" Butonu Stilleri */
@@ -231,4 +272,64 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
     .load-more-btn:hover {
         background-color: var(--secondary-text-color, #6c757d);
     }
+
+    /* Mobilde görseller daha büyük */
+    @media (max-width: 600px) {
+        .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .gallery-item img {
+            width: 100vw;
+            max-width: 100vw;
+            height: 60vw;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+    }
+
+    /* Modal stilleri */
+    .gallery-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0; top: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.85);
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .gallery-modal.is-open {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .gallery-modal img {
+        max-width: 90vw;
+        max-height: 80vh;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        background: white;
+        padding: 1rem;
+    }
+    .gallery-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 3rem;
+        color: white;
+        cursor: pointer;
+        z-index: 2010;
+        background: none;
+        border: none;
+        outline: none;
+        transition: color 0.2s;
+    }
+    .gallery-modal-close:hover, .gallery-modal-close:focus {
+        color: #007bff;
+    }
+    body.no-scroll { overflow: hidden; }
 </style>
