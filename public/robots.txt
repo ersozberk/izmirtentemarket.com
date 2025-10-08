@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://izmirtentemarket.com/sitemap-index.xml
