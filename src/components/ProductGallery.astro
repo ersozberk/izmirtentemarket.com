@@ -25,22 +25,22 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
         
         <nav class="gallery-nav">
             <button data-filter="all" class="active">Tüm Ürünler</button>
-            <button data-filter="roof">Çatı Sistemleri</button>
-            <button data-filter="glazing">Camlama</button>
-            <button data-filter="screen">Gölgeleme</button>
+            <button data-filter="roof">Bioklimatik</button>
+            <button data-filter="glazing">Pergola</button>
+            <button data-filter="screen">Tente</button>
         </nav>
 
         <div class="gallery-grid">
-            <a href="#" class="gallery-item" data-category="roof"><Image src={roof1} alt="Çatı Sistemi Projesi 1" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="screen"><Image src={screen1} alt="Gölgeleme Sistemi Projesi 1" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="glazing"><Image src={glazing1} alt="Cam Sistemi Projesi 1" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="roof"><Image src={roof2} alt="Çatı Sistemi Projesi 2" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="glazing"><Image src={glazing2} alt="Cam Sistemi Projesi 2" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="screen"><Image src={screen2} alt="Gölgeleme Sistemi Projesi 2" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="roof"><Image src={roof3} alt="Çatı Sistemi Projesi 3" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="glazing"><Image src={glazing3} alt="Cam Sistemi Projesi 3" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="screen"><Image src={screen3} alt="Gölgeleme Sistemi Projesi 3" format="webp"/></a>
-            <a href="#" class="gallery-item" data-category="screen"><Image src={screen4} alt="Gölgeleme Sistemi Projesi 4" format="webp"/></a>
+            <a class="gallery-item" data-category="roof"><Image src={roof1} alt="Çatı Sistemi Projesi 1" format="webp"/></a>
+            <a class="gallery-item" data-category="screen"><Image src={screen1} alt="Gölgeleme Sistemi Projesi 1" format="webp"/></a>
+            <a class="gallery-item" data-category="glazing"><Image src={glazing1} alt="Cam Sistemi Projesi 1" format="webp"/></a>
+            <a class="gallery-item" data-category="roof"><Image src={roof2} alt="Çatı Sistemi Projesi 2" format="webp"/></a>
+            <a class="gallery-item" data-category="glazing"><Image src={glazing2} alt="Cam Sistemi Projesi 2" format="webp"/></a>
+            <a class="gallery-item" data-category="screen"><Image src={screen2} alt="Gölgeleme Sistemi Projesi 2" format="webp"/></a>
+            <a class="gallery-item" data-category="roof"><Image src={roof3} alt="Çatı Sistemi Projesi 3" format="webp"/></a>
+            <a lass="gallery-item" data-category="glazing"><Image src={glazing3} alt="Cam Sistemi Projesi 3" format="webp"/></a>
+            <a class="gallery-item" data-category="screen"><Image src={screen3} alt="Gölgeleme Sistemi Projesi 3" format="webp"/></a>
+            <a class="gallery-item" data-category="screen"><Image src={screen4} alt="Gölgeleme Sistemi Projesi 4" format="webp"/></a>
         </div>
         
         <div class="load-more-container">
@@ -202,7 +202,7 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
     }
 
     .gallery-item img {
-        width: 150%;
+        width: 200%;
         aspect-ratio: 4/3;
         object-fit: cover;
         transition: transform 0.4s ease;
