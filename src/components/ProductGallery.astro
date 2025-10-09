@@ -136,20 +136,26 @@ import screen4 from '../../public/images/screen-4.jpg'; // Yeni görsel
         modalClose.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') closeModal(); });
         modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-        // Hem mobilde hem webde açılır pencere için olaylar
+        // Sadece çift tıklama/double tap ile açılır pencere
         galleryItems.forEach(item => {
             const img = item.querySelector('img');
             if (!img) return;
-            // Webde tıklama
-            item.addEventListener('click', (e) => {
+            // Webde çift tıklama
+            item.addEventListener('dblclick', (e) => {
                 e.preventDefault();
                 openModal(img.src, img.alt);
             });
-            // Mobilde dokunma
-            item.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                openModal(img.src, img.alt);
-            }, { passive: false });
+            // Mobilde çift dokunma için
+            let lastTap = 0;
+            item.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 400 && tapLength > 0) {
+                    e.preventDefault();
+                    openModal(img.src, img.alt);
+                }
+                lastTap = currentTime;
+            });
         });
 
         // Başlangıç durumu için galeriyi ilk kez yükle
