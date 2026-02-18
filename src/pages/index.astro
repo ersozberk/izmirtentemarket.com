@@ -1,4 +1,5 @@
 ---
+// src/pages/index.astro
 import MainLayout from '../layouts/MainLayout.astro';
 import AboutIntro from '../components/AboutIntro.astro';
 import ServicesSlider from '../components/ServicesSlider.astro';
@@ -8,15 +9,31 @@ import ContactSection from '../components/ContactSection.astro';
 import SponsorSlider from '../components/SponsorSlider.astro';
 import CommitmentSection from '../components/CommitmentSection.astro';
 import BlogSlider from '../components/BlogSlider.astro';
+
+// SEO için en kritik kısım burasıdır
+const pageTitle = "İzmir Tente & Pergola Sistemleri | Bioklimatik";
+const pageDescription = "İzmir tente, otomatik pergola, bioklimatik tavan ve cam balkon sistemleri. İzmir Tente Market ile mekanlarınıza değer katın. Ücretsiz keşif için tıklayın.";
 ---
-<MainLayout title="İZMİR TENTE MARKET - Mimari Gölgelendirme Çözümleri" description="...">
+
+<MainLayout title={pageTitle} description={pageDescription}>
 
     <section class="hero-cinematic">
-        <video src="videos/hero-cinematic.mp4" autoplay loop muted playsinline poster="/images/posters/hero-poster.jpg"></video>
+        <video 
+            src="videos/hero-cinematic.mp4" 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            poster="/images/hero-poster.jpg"
+            aria-label="İzmir Tente Pergola Tanıtım Videosu"
+        ></video>
+        
+        <div class="overlay"></div>
+
         <div class="hero-content">
-            <h1>Tasarım ve Teknolojinin Buluştuğu Konfor.</h1>
-            <p></p>
-            <a href="/urunler" class="btn"> ÜRÜNLER &rarr;</a>
+            <h1>İzmir Tente ve Pergola Sistemleri</h1>
+            <p>Tasarım ve teknolojinin buluştuğu konfor alanları yaratıyoruz. 4 mevsim yaşanabilir mekanlar için profesyonel çözümler.</p>
+            <a href="/urunler" class="btn">ÜRÜNLERİ İNCELE &rarr;</a>
         </div>
     </section>
 
@@ -29,28 +46,18 @@ import BlogSlider from '../components/BlogSlider.astro';
     <BlogSlider />
 
 </MainLayout>
-<style is:global>
-    /* TEMEL SAYFA SIFIRLAMASI - ÇOK ÖNEMLİ */
-    /* Tarayıcının varsayılan boşluklarını kaldırarak taşmaları engeller */
-    html, body {
-        margin: 0;
-        padding: 0;
-        /* Bu, yatay kaydırmayı kesin olarak engeller. 
-           Sorunun kök nedenini bulmak en iyisidir ama bu da güçlü bir çözümdür. */
-        overflow-x: hidden;
-    }
 
-    /* HERO BÖLÜMÜ GÜNCELLEMELERİ */
-   .hero-cinematic {
-        position: relative; /* Bu zaten doğru, yığınlama bağlamı oluşturur */
-        height: 100dvh;
+<style>
+    /* Sadece bu sayfaya özel stiller */
+    .hero-cinematic {
+        position: relative;
+        height: 90vh; /* Mobilde tam ekran yerine biraz alttan boşluk bırakır, kullanıcı kaydırması gerektiğini anlar */
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        /* Güvenlik için bir arka plan rengi ekleyin. Video yüklenemezse bu görünür. */
-        background-color: #000; /* Veya videonuza uygun koyu bir renk */
+        background-color: #000;
     }
 
     .hero-cinematic video {
@@ -61,39 +68,62 @@ import BlogSlider from '../components/BlogSlider.astro';
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* z-index: -1; KURALINI BURADAN KALDIRIN! */
-        /* Video, varsayılan z-index: auto (veya 0) ile kalacak. */
+        z-index: 0;
+    }
+
+    /* Yazıların video üzerinde okunması için perde */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* %40 siyahlık */
+        z-index: 1;
     }
 
     .hero-content {
-        position: relative; /* Videonun üzerine çıkabilmesi için bir konumlandırma bağlamı verin. */
-        z-index: 1; /* Bu değer videonun z-index'inden (auto/0) daha yüksek olduğu için önde görünecektir. */
+        position: relative;
+        z-index: 2; /* Perdenin üzerinde */
         text-align: center;
         color: white;
         padding: 0 20px;
+        max-width: 900px;
     }
 
     .hero-content h1 {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-        font-weight: 1200; /* Daha kalın */
+        font-size: clamp(2rem, 6vw, 4.5rem); /* Responsive yazı boyutu */
+        font-weight: 800;
         color: #fff;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.45); /* Okunaklılık için gölge */
-        letter-spacing: 0.02em;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
     }
 
     .hero-content p {
-        font-size: 1.2rem;
-        margin: 1rem 0 2rem;
-        max-width: 500px;
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        margin: 0 auto 2.5rem;
+        max-width: 700px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        opacity: 0.95;
     }
 
     .hero-content .btn {
+        display: inline-block;
         background-color: var(--accent-color);
         color: white;
         padding: 1rem 2.5rem;
-        border-radius: 4px;
+        border-radius: 50px;
         text-decoration: none;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    .hero-content .btn:hover {
+        transform: translateY(-3px);
+        background-color: #0056b3;
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
     }
 </style>
