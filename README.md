@@ -1,43 +1,32 @@
-# Astro Starter Kit: Minimal
+# İzmir Tente Market - Astro Web Project 🏖️
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Bu proje, İzmir'de tente, pergola ve gölgeleme sistemleri üzerine hizmet veren **izmirtentemarket.com** için geliştirilmiş, yüksek performanslı ve SEO odaklı bir kurumsal web sitesidir.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Başarı Hikayesi
+Bu web sitesi, **Astro** altyapısının sağladığı hız ve doğru SEO stratejileri sayesinde "İzmir Tente" gibi rekabetçi anahtar kelimelerde **Google'da 1. sayfada** yer almaktadır.
 
-## 🚀 Project Structure
+## ✨ Özellikler
+- **Astro v4.x:** Sıfır JavaScript (Zero-JS) çalışma zamanı ile maksimum hız.
+- **Full SEO Optimized:** Meta etiketleri, Open Graph (OG) verileri ve JSON-LD şemalarıyla tam uyumlu.
+- **Responsive Design:** Tüm mobil ve masaüstü cihazlarla %100 uyumlu arayüz.
+- **Lighthouse Skorları:** %95+ Performans, Erişilebilirlik ve SEO puanları.
+- **Hızlı Yüklenme:** Görseller için modern formatlar (WebP) ve Astro Image entegrasyonu.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Teknolojiler
+- [Astro](https://astro.build/) - Modern Statik Site Oluşturucu
+- [Tailwind CSS](https://tailwindcss.com/) - Tasarım ve Stil (isteğe bağlı, projenize göre güncelleyin)
+- [Lucide Icons](https://lucide.dev/) - İkon Kütüphanesi
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## 📦 Kurulum ve Çalıştırma
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Projeyi yerel ortamınızda çalıştırmak için:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+# Repoyu klonlayın
+git clone [https://github.com/kullanici-adi/izmirtentemarket.git](https://github.com/kullanici-adi/izmirtentemarket.git)
 
-Any static assets, like images, can be placed in the `public/` directory.
+# Bağımlılıkları yükleyin
+npm install
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# Geliştirme sunucusunu başlatın
+npm run dev
