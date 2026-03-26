@@ -21,12 +21,16 @@ Bu web sitesi, **Astro** altyapısının sağladığı hız ve doğru SEO strate
 
 Projeyi yerel ortamınızda çalıştırmak için:
 
-```bash
+
 # Repoyu klonlayın
-git clone [https://github.com/kullanici-adi/izmirtentemarket.git](https://github.com/kullanici-adi/izmirtentemarket.git)
-
+```bash
+git clone https://github.com/ersozberk/izmirtentemarket.com
+```
 # Bağımlılıkları yükleyin
+```bash
 npm install
-
+```
 # Geliştirme sunucusunu başlatın
+```bash
 npm run dev
+```
